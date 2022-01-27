@@ -1,0 +1,55 @@
+﻿@model Hotel_Pandiani.Models.Empleado
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Baja de Empleado</h1>
+<hr />
+<h3>¿Estas seguro que queres dar de baja al empleado @Model.Nombre @Model.Apellido?</h3>
+<div>
+
+    <hr />
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sueldo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sueldo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaIngreso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaIngreso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TurnoEnum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TurnoEnum)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Borrar" class="btn btn-danger" id="rojo" />
+    </form>
+
+    <br />
+
+    <a class="btn btn-primary" id="bw-chico" asp-action="Index">Volver a la lista</a>
+</div>

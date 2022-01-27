@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Hotel_Pandiani.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Lista de Empleados";
+}
+<h1>Lista de Empleados</h1>
+
+<hr />
+
+<form asp-controller="Empleados" asp-action="BuscarEmpleado">
+    <p>
+        <input type="text" name="NombreEmpleado" placeholder="Ingrese el Empleado" />
+        <input type="submit" value="Buscar" />
+    </p>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FechaIngreso)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.TurnoEnum)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Sueldo)
+            </th>
+
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaIngreso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TurnoEnum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cargo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sueldo)
+
+                </td>
+
+                <td>
+                    <div>
+                        <a class="btn btn-primary" id="boton-verde" asp-action="Seleccion" asp-route-id="@item.Id">Seleccionar</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a id="bw" class="btn btn-primary" asp-action="Create">Crear Nuevo Empleado</a>
+</div>

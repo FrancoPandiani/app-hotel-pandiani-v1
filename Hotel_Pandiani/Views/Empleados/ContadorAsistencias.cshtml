@@ -1,0 +1,98 @@
+﻿@model Hotel_Pandiani.Models.Empleado
+
+@{
+    ViewData["Title"] = "ContadorAsistencias";
+
+
+}
+
+@{var emp = ViewBag.Empleados; }
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ContadorAsistencias">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label class="control-label">Empleado</label>
+
+                <select name="id" class="form-control" asp-items="@ViewBag.Empleados">
+                    <option>Seleccione un Empleado</option>
+                </select>
+
+                <span class="text-danger"></span>
+
+            </div>
+
+
+            <br />
+            <div class="form-group">
+                <input class="btn btn-primary"id="boton-verde" type="submit" value="Ver Asistencias"  />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+
+                <th>
+                    Presentes
+                </th>
+
+                <th>
+                    Tardes
+                </th>
+                <th>
+                    Ausentes
+                </th>
+
+
+
+                <th></th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Apellido)
+                </td>
+                <td>
+                    @ViewBag.Presente
+                </td>
+                <td>
+                    @ViewBag.Tarde
+                </td>
+                <td>
+                    @ViewBag.Ausente
+                </td>
+
+                <td>
+                    <div>
+                        <a id="bw" class="btn btn-primary" asp-action="Index">Volver a la lista</a>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>

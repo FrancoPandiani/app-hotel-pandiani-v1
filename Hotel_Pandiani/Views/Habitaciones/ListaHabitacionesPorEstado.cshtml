@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Hotel_Pandiani.Models.Habitacion>
+
+<h4>Lista Habitaciones por estado</h4>
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Mantenimiento)
+            </th>
+
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+          
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Numero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+
+                <td>
+                   
+                    @if (item.Mantenimiento != false)
+                    {  
+                        <a asp-action="DarMantenimiento" asp-route-id="@item.Id">Dar Mantenimiento</a>
+                    }
+
+                    else
+                    {
+                        <button type="button" style="background:green">Lista</button>                  
+                    }
+                </td>             
+
+            </tr>
+        }
+
+    </tbody>
+    
+</table>
+
+<a class="btn btn-primary" id="bw" asp-action="index"> Volver </a>

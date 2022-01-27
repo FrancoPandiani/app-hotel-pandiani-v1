@@ -1,0 +1,31 @@
+﻿body {
+}
+#bw {
+    color: whitesmoke;
+    background-color:black;
+}
+#bw-chico {
+    color: whitesmoke;
+    background-color: black;
+    font-size: small;
+}
+#boton-verde {
+    background-color: forestgreen;    
+}
+#boton-amarillo {
+    background-color: goldenrod;
+}
+#boton-verde-big {
+    background-color: forestgreen;
+    font-size:large;
+}
+#rojo {
+    background-color: red;
+}
+#azul-leve{
+    background-color:cornflowerblue;
+}
+.btn {
+    color: whitesmoke;
+    background-color: black;
+}

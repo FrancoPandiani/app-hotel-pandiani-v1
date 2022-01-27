@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/botones.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+   
+
+</head>
+
+<body>
+    <header>
+        <nav  class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+
+
+                <div  class="navbar-collapse collapse d-sm-inline-flex justify-content-md-between">             
+
+                    <ul id="centrado-vertical" class="navbar-nav flex-grow-1">
+
+                        <li class="navbar-brand">
+                            <a asp-area="" asp-controller="Home" asp-action="index">
+                                <img src="~/imagenes/Home/icono_principal.jpg" alt="" width="50" height="50">
+                            </a>                           
+                        </li>    
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" asp-area="" asp-controller="Empleadoes" asp-action="Index">Empleados</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-area="" asp-controller="Empleados" asp-action="Index" style="font-size:13px;">Lista Empleados</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Empleados" asp-action="Create" style="font-size:13px;">Alta Empleado</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Telefonos" asp-action="Create" style="font-size:13px;">Gestión Telefonos</a>
+
+                            </div>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" asp-area="" asp-controller="Asistencia" asp-action="Index">Asistencias</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-area="" asp-controller="Asistencias" asp-action="Index" style="font-size:13px;">Registro de Asistencias</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Empleados" asp-action="ContadorAsistencias" style="font-size:13px;">Contador de asistencias</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Asistencias" asp-action="Create" style="font-size:13px;">Cargar Asistencia</a>
+
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown" >
+                            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" asp-area="" asp-controller="Habitaciones" asp-action="Index">Habitaciones</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-area="" asp-controller="Habitaciones" asp-action="Index" style="font-size:13px;">Lista de Habitaciones</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Habitaciones" asp-action="Crear" style="font-size:13px;">Agregar Habitacion</a>
+                                <a class="dropdown-item" asp-controller="Habitaciones" asp-action="InformarMantenimiento" style="font-size:13px;">Informar Mantenimiento</a>
+                                <a class="dropdown-item" asp-controller="Habitaciones" asp-action="Alquilar" style="font-size:13px;">Alquilar</a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Developed by Franco Pandiani.
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

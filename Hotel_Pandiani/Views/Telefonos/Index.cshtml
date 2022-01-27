@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Hotel_Pandiani.Models.Telefono>
+
+@{
+    ViewData["Title"] = "Lista Telefonos";
+}
+
+<h1>Lista de telefonos</h1>
+
+<hr />
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empleado.Apellido)
+            </td>
+            <td>
+                <a id="boton-verde" class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a> 
+                <a id="azul-leve" class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Detalles</a> 
+                <a id="rojo" class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+    
+</table>
+
+<div>
+    <a id="boton-verde" asp-action="Create" class="btn btn-primary">Agregar un Telefono</a>
+    <a id="bw" class="btn btn-primary" asp-controller="Empleados" asp-action="Index">Lista de empleados</a>
+</div>
+
+    

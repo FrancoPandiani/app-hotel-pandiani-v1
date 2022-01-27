@@ -1,0 +1,63 @@
+﻿@model Hotel_Pandiani.Models.Empleado
+
+
+@{ List<Telefono> listaTelefonos = (List<Telefono>)ViewData["telefonos"];}
+
+<h4>Empleado</h4>
+<hr />
+<h1>@Model.Nombre @Model.Apellido</h1>
+
+<div>
+
+    <hr />
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sueldo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sueldo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cargo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cargo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaIngreso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaIngreso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TurnoEnum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TurnoEnum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Antiguedad)
+        </dt>
+        <dd class="col-sm-10">
+            @ViewBag.antiguedad <p>Años</p>   
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefonos)
+        </dt>
+        <dd class="col-sm-10">
+
+            @foreach (var tel in listaTelefonos)
+            {
+                <p>@tel.Numero</p>
+            }
+
+        </dd>
+
+    </dl>
+    
+        <a id="boton-verde" class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Editar</a> 
+        <a id="rojo" class="btn btn-primary" asp-action="Delete" asp-route-id="@Model.Id">Borrar</a>
+        <a id="bw" class="btn btn-primary" asp-controller="Empleados" asp-action="Index" >Volver</a>
+    
+</div>

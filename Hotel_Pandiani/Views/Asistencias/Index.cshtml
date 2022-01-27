@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Hotel_Pandiani.Models.Asistencia>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Registro de Asistencias</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear nueva asistencia</a>
+</p>
+
+<form asp-controller="Asistencias" asp-action="Index">
+    <p>
+        Empleado: <input type="text" name="nombre" />
+        <input type="submit" value="Filtrar" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+           
+            <tr>
+                <td>
+                    
+                    @Html.DisplayFor(modelItem => item.Empleado.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    <a id="boton-verde" class="btn btn-primary" asp-action="Edit" asp-route-id="@item.AsistenciaId">Editar</a> 
+                    <a id="bw" class="btn btn-primary" asp-action="Details" asp-route-id="@item.AsistenciaId">Detalles</a> 
+                    <a id="rojo" class="btn btn-primary" asp-action="Delete" asp-route-id="@item.AsistenciaId">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

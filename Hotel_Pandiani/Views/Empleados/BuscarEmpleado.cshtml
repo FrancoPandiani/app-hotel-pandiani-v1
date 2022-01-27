@@ -1,0 +1,107 @@
+﻿@model Hotel_Pandiani.Models.Empleado
+
+@{
+    ViewData["Title"] = "Busqueda";
+}
+@{
+    var Antiguedad = ViewData["Antiguedad"];
+}
+
+
+@if (Model != null)
+{
+    <h1>Empleado Encontrado</h1>
+
+
+    <form asp-controller="Empleadoes" asp-action="BuscarEmpleado">
+        <p>
+            <input type="text" name="NombreEmpleado" placeholder="Ingrese el Empleado" />
+            <input type="submit" value="Buscar" />
+        </p>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apellido)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaIngreso)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.TurnoEnum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cargo)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Sueldo)
+                </th>
+
+
+                <th></th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Apellido)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Model.FechaIngreso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.TurnoEnum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Cargo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Sueldo)
+                </td>
+
+                <td>
+                </td>
+                <td>
+                    <a class="btn btn-primary" id="boton-verde" asp-action="Seleccion" asp-route-id="@Model.Id">Selecionar</a>
+
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-primary" id="bw-chico" asp-action="Index">Volver a Lista de Empleados</a>
+    </div>
+}
+else
+{
+    <h1>Oops !! </h1>
+    <h3>No encontramos nada...</h3>
+    <br />
+    <img src="~/imagenes/Error/cruz.png" style="width:50px" />
+    <br />
+    <br />
+    <p>
+        <a class="btn btn-primary" id="bw" asp-action="Index">Lista de Empleados</a>
+    </p>
+
+
+}

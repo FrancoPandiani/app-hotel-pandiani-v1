@@ -1,0 +1,54 @@
+﻿@model Hotel_Pandiani.Models.Habitacion
+
+@{
+    ViewData["Title"] = "Agregar Habitacion";
+}
+
+@{
+    List<Habitacion> h = ViewBag.habitaciones ;
+}
+<h3>Agregar Habitacion</h3>
+
+<hr />
+
+<div class="row">
+
+    <div class="col-md-4">
+        <form asp-action="Crear">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Numero" class="control-label"></label>
+                <input id="numero" asp-for="Numero" class="form-control" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="IdEmpleado" class="control-label">Empleado</label>
+
+                <select asp-for="IdEmpleado" class="form-control" asp-items="@ViewBag.Empleados">
+                    <option>Selecione un Empleado</option>
+                </select>
+
+                <span asp-validation-for="IdEmpleado" class="text-danger"></span>
+            </div>
+            <br />
+           
+            <div class="form-group">
+                <input type="submit" value="Crear" id="boton-verde" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+
+</div>
+<br />
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
